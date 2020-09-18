@@ -1,0 +1,31 @@
+<div class="commentcl">
+<label for="commnet">comment:</label>
+<textarea name="comment"  cols="30" rows="10" class="form-control" #commenttxt></textarea>
+<button style="margin-top: 1em;" class="btn btn-primary" (click)="addCommnet()" >Add comment</button>
+</div>
+<div class="commentcl" *ngIf="comments != null">
+    <div *ngFor="let c of comments">
+        <p style="clear: both;">{{ c.comment }}</p>
+        <div style="float: left;">
+           <app-star [rating]="c.numberOfReviews != 0 ? c.star / c.numberOfReviews : 0">
+            <p>Start Component!</p>
+           </app-star>
+        </div>
+        <div  style="float: right;">
+            <span>{{ c.like }}</span>
+            <i (click)="commentLike(c)" class="fa fa-heart" style="cursor: pointer;"></i>
+            <span>{{ c.dislike }}</span>
+            <i  (click)="commentDislike(c)" class="fa fa-heart" style="cursor: pointer;"></i>
+        </div>
+        <div style="clear: both;">
+            <span>rating:</span>
+            <input #ratingInput (keyup.enter)="reviewsCount(c, ratingInput)" type="number" min="0" max="5" >            
+        </div>
+        <hr>
+        <br>
+    </div>
+    
+</div>
+
+
+
