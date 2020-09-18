@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//tested
+//test
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
